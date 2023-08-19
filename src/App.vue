@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-  <h1>Dólar Hoy</h1>
+  <h1>DólarDiario</h1>
   </header>
   <main>
     <Suspense>
@@ -18,4 +18,22 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped lang="sass">
 body
     background-color: var(--darkGreen)
+header
+    display: flex
+    justify-content: center
+h1
+    font-weight: 600
+    position: relative
+    display: inline-block
+    font-size: 3rem
+    &::after
+        content: ''
+        position: absolute
+        display: block
+        bottom: 5px
+        right: -10px
+        width: 5rem
+        height: 0.3rem
+        background-color: var(--accent-dark-1)
+        border-radius: 50px
 </style>
