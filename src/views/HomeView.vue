@@ -58,30 +58,43 @@ const formatSpanishDate = computed(() => {
           <p class="divisas__number">${{  divisa.value_sell }}</p>
         </div>
       </div>
-      {{ formatedDate }}
+    </div>
+    <div class="last-update">
+      <p>Última actualización:</p>
+      <p>{{ formatedDate }}</p>
     </div>
   </main>
 </template>
 
 <style scoped lang="sass">
 .divisas__wrapper
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-    margin-top: 2rem
-    max-width: 1000px
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    grid-column-gap: 2rem
+    grid-row-gap: 2rem
+    padding-top: 2rem
+    max-width: 720px
     width: 95%
     margin: 0 auto
+    @media (max-width: 570px)
+        grid-template-columns: 1fr
+        grid-template-rows: repeat(4, 1fr)
+        grid-column-gap: 0
+        grid-row-gap: 1rem
+        max-width: 720px
+        width: 90%
+        margin: 0 auto
     .divisas__item
         display: grid
         grid-template-columns: 2fr
         grid-template-rows: 1fr 1fr 1fr
-        width: 17rem
-        margin: 1rem
+        grid-row-gap: 10px
         border: 1px solid lighten(#000, 70%)
-        border-bottom: 3px solid lighten(#000, 70%)
+        border-bottom: 4px solid lighten(#000, 70%)
         border-radius: 1rem
-        padding: 0.5rem 1rem
+        line-height: 0.9
+        padding: 1rem
         background-color: var(--white)
         box-shadow: 0.2rem 0.3rem 0.8rem rgba(0,0,0,0.2)
         transition: all 0.3s ease
@@ -96,8 +109,8 @@ const formatSpanishDate = computed(() => {
             justify-content: space-between
             width: 100%
         label
-            font-weight: 400
-            font-size: 1.5rem
+            font-weight: 300
+            font-size: 1.4rem
         .divisas__number
             font-weight: 600
             font-size: 2rem
@@ -112,4 +125,15 @@ const formatSpanishDate = computed(() => {
                 margin-bottom: 1rem
             p
                 font-size: 1.5rem
+.last-update
+    font-size: 1.2rem
+    margin-top: 1rem
+    text-align: center
+    line-height: 1
+    color: var(--accent-dark-3)
+    p:first-child
+        font-size: 0.8rem
+        font-weight: 300
+        color: var(--black)
+    p:last-child
 </style>
